@@ -1,0 +1,151 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    background: #222222;
+    color: #ffffff;
+    font-family: 'inter', sans-serif;
+}
+
+* {
+  --border: 1px solid #2D2D2D;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+    color: #1ECBEF;
+    text-align: center;
+}
+
+button {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: #555555;
+    padding: 10px 20px;
+    background: #151515;
+    border: none;
+    border-radius: 10px;
+    margin: auto 9px;
+    cursor: pointer;
+}
+
+.button-color {
+    color: #fff;
+}
+
+.measurement--nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 81px;
+    border-top: var(--border);
+    border-bottom: var(--border)
+}
+
+.main--content {
+    width: 529px;
+    height: auto;
+    margin: auto;
+    margin-top: 41px;
+    padding: 24px;
+    background: #2C2D2F;
+    border-radius: 15px;
+}
+
+.top--details, .bottom--details {
+    position: relative;
+    width: 486px;
+    height: 227px;
+    margin: 24px auto;
+    border: 0.5px solid #404040;
+    border-radius: 10px;
+    padding: 28px 19px;
+}
+
+
+hr {
+    border: 0.5px solid #404040;
+}
+
+.perferred--unit {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+img {
+    margin-left: 15px;
+}
+
+input {
+    width: 90%;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 61px;
+    text-align: right;
+    color: #ffffff;
+    background: transparent;
+    border: none;
+    padding-right: 40px;
+}
+
+
+p.con--result {
+    width: 90%;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 61px;
+    text-align: right;
+}
+
+.measure--list {
+    display: none;
+    position: absolute;
+    top: 100px;
+    width: 156px;
+    height: 277px;
+    background: #222222;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.show {
+    display: block;
+}
+
+
+.list {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 0.25px solid #404040;
+    cursor: pointer;
+}
+
+.darken {
+    color: #939393;
+}
+
+
+.swap--container {
+    width: 529px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.swap--icon {
+    cursor: pointer;
+}
