@@ -120,7 +120,7 @@ p.con--result {
 }
 
 
-.list {
+.list, .lower--list{
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
@@ -148,4 +148,13 @@ p.con--result {
 
 .swap--icon {
     cursor: pointer;
+}
+
+.calculator {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #696969;
+    text-align: right;
+    padding-right: 40px;
 }
