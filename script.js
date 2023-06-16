@@ -11,21 +11,7 @@ for(let i = 0; i < details.length; i++) {
     let listClick = details[i] 
     listClick.addEventListener('click', function() {
     measureList[i].classList.toggle("show")
-        let currentDetail = details[i].textContent
-        for (let i = 0; i < list.length; i++) {
-            let listConstent = list[i].textContent
-            if (currentDetail === listConstent) {
-                list[i].classList.add("darken")
-            } else {
-                list[i].classList.remove("darken")
-            }
-        }
 })}
-
-
-
-    
-
 
 
 
@@ -78,8 +64,12 @@ for (let i = 0; i < list.length; i++) {
         measureList[0].classList.toggle("show")
         let currentList = list[i].textContent
         meter.innerHTML = `${currentList} <img src="./img/Vector.png" alt="triangle"/>`
+        if (meter.innerText === currentList) {
+            list[i].classList.add("darken")
+        } else if ( currentList !==  meter.innerText) {
+            list[i].classList.add("whiten")
+        } 
         }
-        
     })
 } 
 
@@ -96,6 +86,6 @@ for (let i = 0; i < lowerList.length; i++) {
         let currentList2 = lowerList[i].textContent
         feet.innerHTML = `${currentList2} <img src="./img/Vector.png" alt="triangle"/>`
         }
+        
     })
 } 
-

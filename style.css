@@ -71,7 +71,7 @@ hr {
 }
 
 .perferred--unit {
-    font-weight: 600;
+    font-weight: 300;
     font-size: 30px;
     line-height: 36px;
     display: flex;
@@ -117,6 +117,10 @@ p.con--result {
 
 .show {
     display: block;
+}
+
+.whiten {
+    color: #ffffff;
 }
 
 
