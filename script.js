@@ -62,18 +62,50 @@ for (let i = 0; i < list.length; i++) {
         } else {
         /* list[i].classList.toggle("darken") */
         measureList[0].classList.toggle("show")
-        let currentList = list[i].textContent
+        let currentList = list[i].textContent   
         meter.innerHTML = `${currentList} <img src="./img/Vector.png" alt="triangle"/>`
-        if (meter.innerText === currentList) {
+        }
+        if (meter.innerText === list[1].textContent) { 
             list[i].classList.add("darken")
-        } else if ( currentList !==  meter.innerText) {
-            list[i].classList.add("whiten")
-        } 
+            let range = [2, 3, 4, 5]
+            range.forEach(element => {
+                list[element].classList.remove("darken")
+            });
+        } else if (meter.innerText === list[2].textContent) {
+            list[i].classList.add("darken")
+            let range = [1, 3, 4, 5]
+            range.forEach(element => {
+                list[element].classList.remove("darken")
+            });
+        }  else if (meter.innerText === list[3].textContent) {
+            list[i].classList.add("darken")
+            let range = [1, 2, 4, 5]
+            range.forEach(element => {
+                list[element].classList.remove("darken")
+            });
+        } else if (meter.innerText === list[4].textContent) {
+            list[i].classList.add("darken")
+            let range = [1, 2, 3, 5]
+            range.forEach(element => {
+                list[element].classList.remove("darken")
+            });
+        } else {
+            list[i].classList.add("darken")
+            let range = [1, 2, 3, 4]
+            range.forEach(element => {
+                list[element].classList.remove("darken")
+            }); 
         }
     })
 } 
 
 
+
+
+
+
+
+// lower list
 const lowerList = document.getElementsByClassName("lower--list")
 const feet = document.getElementById("feet")
 for (let i = 0; i < lowerList.length; i++) {
@@ -86,6 +118,5 @@ for (let i = 0; i < lowerList.length; i++) {
         let currentList2 = lowerList[i].textContent
         feet.innerHTML = `${currentList2} <img src="./img/Vector.png" alt="triangle"/>`
         }
-        
     })
 } 
