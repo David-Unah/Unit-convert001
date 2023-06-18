@@ -40,22 +40,38 @@ function buttonColor(a, b) {
 }    
 
 
-
 //corresponding input 
 const result = document.getElementById("result")
 input.addEventListener("input", function() {
-    //conditions for unit calculations
-    const calculate = document.getElementById("calculate")
-    const meterValue = 3.281
-    const inputValue = input.value
-    const convertToFeet = meterValue * inputValue
-    const meterToFeet = convertToFeet.toFixed(3)
-    result.textContent = meterToFeet
-    calculate.textContent = `${meterValue} x ${input.value} In`
-    if (input.value === '') {
-        calculate.textContent = "Kindly input unit"
+    if (bottomSelect.innerText === "Kilometer"){
+        conversionToKilometer(1000)
+    } else if (bottomSelect.innerText === "Centimeter") {
+        conversionToCentimeter(100)
+    } else if (bottomSelect.innerText === "Feet") {
+        conversionToFeet(3.281, 3)
+    } else  if (bottomSelect.innerText === "Yard") {
+        conversionToYard(1.094, 3)
+    } if (input.value === '') { 
+        calculate.textContent = "Kindly input unit" 
     }
+    if (meter.innerText === bottomSelect.innerText) {
+        console.log("kindly select a different measurement")
+        result.textContent = input.value
+        bottomSelect.classList.add("bounce")
+        calculate.textContent = "waiting..."
+    } 
+
+    
+    
 })
+
+bottomSelect.addEventListener("click", () => {
+    bottomSelect.classList.remove("bounce")
+})
+
+
+
+
 
 //list functionalities
 
@@ -75,11 +91,17 @@ for (let i = 0; i < list.length; i++) {
         input.addEventListener('input', () => {
             if (meter.innerText === bottomSelect.innerText) {
                 console.log("kindly select a different measurement")
-                result.textContent = 0
+                
+                calculate.textContent = "waiting..."
             } else if (bottomSelect.innerText === "Kilometer"){
                 conversionToKilometer(1000)
-            } else {
+                
+            } else if (bottomSelect.innerText === "Centimeter") {
+                conversionToCentimeter(100)
+            } else if (bottomSelect.innerText === "foot") {
                 conversionToFeet(3.281, 3)
+            } else {
+                conversionToYard(1.094, 3)
             }
         })
     
@@ -106,6 +128,12 @@ for (let i = 0; i < list.length; i++) {
 })
 } 
 
+function renderToNull() {
+    result.textContent = 0
+    input.value = ''
+}
+
+
 //list darken function
 function listDarkedSelect(arr) {
         input.value = 0
@@ -122,6 +150,7 @@ function listDarkedSelect(arr) {
 const lowerList = document.getElementsByClassName("lower--list")
 for (let i = 0; i < lowerList.length; i++) {
     lowerList[i].addEventListener('click', function() {
+        renderToNull()
         if (lowerList[i] === lowerList[0]) {
             measureList[1].classList.toggle("show")
         } else {
@@ -155,5 +184,23 @@ function conversionToKilometer(num) {
     const convertToKilometer = input.value / meterValue
     result.textContent = convertToKilometer
     calculate.textContent = `${input.value} / ${meterValue} In`
+}
 
+function conversionToCentimeter(num) {
+    const result = document.getElementById("result")
+    const calculate = document.getElementById("calculate")
+    const meterValue = num
+    const convertToCentimeter = input.value * meterValue
+    result.textContent = convertToCentimeter
+    calculate.textContent = `${input.value} x ${meterValue} In`
+}
+
+function conversionToYard(num, toFix) {
+    const result = document.getElementById("result")
+    const calculate = document.getElementById("calculate")
+    const meterValue = num
+    const convertToYard = meterValue * input.value
+    const meterToYard = convertToYard.toFixed(toFix)
+    result.textContent = meterToYard
+    calculate.textContent = `${meterValue} x ${input.value} In`
 }
