@@ -14,41 +14,45 @@ for(let i = 0; i < details.length; i++) {
 })}
 
 
-
-
 // top buttons
 const button = document.getElementsByTagName("button")
 for (let i = 0; i < button.length; i++) {
     button[i].addEventListener('click', () => {
-        /* button[i].classList.toggle("button-color") */
         if (button[i] === button[0]) {
-            button[i].classList.toggle("button-color")
-            button[1].classList.remove("button-color")
-            button[2].classList.remove("button-color")
+            buttonColor(1, 2)
         } else if (button[i] === button[1]) {
-            button[i].classList.toggle("button-color")
-            button[0].classList.remove("button-color")
-            button[2].classList.remove("button-color")
+            buttonColor(0, 2)
         } else {
-            button[i].classList.toggle("button-color")
-            button[0].classList.remove("button-color")
-            button[1].classList.remove("button-color")
+            buttonColor(0, 1)
         }
     })
 }
+
+//button color light control when clicked
+function buttonColor(a, b) {
+    for (let i = 0; i < button.length; i++) {
+    button[i].classList.add("button-color")
+    button[a].classList.remove("button-color")
+    button[b].classList.remove("button-color")
+    }
+}    
+
 
 
 //corresponding input 
 const result = document.getElementById("result")
 input.addEventListener("input", function() {
     //conditions for unit calculations
-    result.textContent = input.value
     const calculate = document.getElementById("calculate")
-
+    const meterValue = 3.281
+    const inputValue = input.value
+    const convertToFeet = meterValue * inputValue
+    const meterToFeet = convertToFeet.toFixed(3)
+    console.log(typeof inputValue)
+    result.textContent = meterToFeet
+    calculate.textContent = `${meterValue} x ${input.value} In`
     if (input.value === '') {
         calculate.textContent = "Kindly input unit"
-    } else {
-        calculate.textContent = "Calculations goes in here"
     }
 })
 
@@ -60,49 +64,48 @@ for (let i = 0; i < list.length; i++) {
         if (list[i] === list[0]) {
             measureList[0].classList.toggle("show")
         } else {
-        /* list[i].classList.toggle("darken") */
         measureList[0].classList.toggle("show")
         let currentList = list[i].textContent   
         meter.innerHTML = `${currentList} <img src="./img/Vector.png" alt="triangle"/>`
         }
-        if (meter.innerText === list[1].textContent) { 
-            list[i].classList.add("darken")
-            let range = [2, 3, 4, 5]
-            range.forEach(element => {
-                list[element].classList.remove("darken")
-            });
-        } else if (meter.innerText === list[2].textContent) {
-            list[i].classList.add("darken")
-            let range = [1, 3, 4, 5]
-            range.forEach(element => {
-                list[element].classList.remove("darken")
-            });
-        }  else if (meter.innerText === list[3].textContent) {
-            list[i].classList.add("darken")
-            let range = [1, 2, 4, 5]
-            range.forEach(element => {
-                list[element].classList.remove("darken")
-            });
-        } else if (meter.innerText === list[4].textContent) {
-            list[i].classList.add("darken")
-            let range = [1, 2, 3, 5]
-            range.forEach(element => {
-                list[element].classList.remove("darken")
-            });
-        } else {
-            list[i].classList.add("darken")
-            let range = [1, 2, 3, 4]
-            range.forEach(element => {
-                list[element].classList.remove("darken")
-            }); 
-        }
-    })
+    if (meter.innerText === list[1].textContent) { 
+        list[i].classList.add("darken")
+        listDarkedSelect([2, 3, 4, 5])
+        conversion( 3.281, 3)
+        
+        
+    } else if (meter.innerText === list[2].textContent) {
+        list[i].classList.add("darken")
+        listDarkedSelect([1, 3, 4, 5])
+        conversion( 3281, 0)
+        
+    }  else if (meter.innerText === list[3].textContent) {
+        list[i].classList.add("darken")
+        listDarkedSelect([1, 2, 4, 5])
+        conversion( 30.48, 3)
+        
+    } else if (meter.innerText === list[4].textContent) {
+        list[i].classList.add("darken")
+        listDarkedSelect([1, 2, 3, 5])
+        
+    } else {
+        list[i].classList.add("darken")
+        listDarkedSelect([1, 2, 3, 4])
+        conversion( 3, 0)
+    }
+})
 } 
 
-
-
-
-
+//list darken function
+function listDarkedSelect(arr) {
+        input.value = 0
+        result.textContent = input.value
+        calculate.textContent = 'calculation goes in here'
+        let range = arr
+        range.forEach(element => {
+            list[element].classList.remove("darken")
+        })
+}
 
 
 // lower list
@@ -120,3 +123,16 @@ for (let i = 0; i < lowerList.length; i++) {
         }
     })
 } 
+
+//make the calculation function dynamic
+function conversion(num, toFix) {
+input.addEventListener("input", () => {
+            const result = document.getElementById("result")
+            const calculate = document.getElementById("calculate")
+            const meterValue = num
+            const convertToFeet = meterValue * input.value
+            const meterToFeet = convertToFeet.toFixed(toFix)
+            result.textContent = meterToFeet
+            calculate.textContent = `${meterValue} x ${input.value} In`
+        })
+}
