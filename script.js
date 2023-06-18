@@ -1,8 +1,10 @@
 const details = document.getElementsByClassName("perferred--unit")
 const measureList = document.getElementsByClassName("measure--list")
 const list = document.getElementsByClassName("list")
+
 const meter = document.getElementById("meter")
 const input = document.getElementById("input")
+const bottomSelect = document.getElementById("bottom--select")
 
 
 // work in this part of the code in the office, make sure it darkens in accordance with the name of the select unit
@@ -48,7 +50,6 @@ input.addEventListener("input", function() {
     const inputValue = input.value
     const convertToFeet = meterValue * inputValue
     const meterToFeet = convertToFeet.toFixed(3)
-    console.log(typeof inputValue)
     result.textContent = meterToFeet
     calculate.textContent = `${meterValue} x ${input.value} In`
     if (input.value === '') {
@@ -71,18 +72,27 @@ for (let i = 0; i < list.length; i++) {
     if (meter.innerText === list[1].textContent) { 
         list[i].classList.add("darken")
         listDarkedSelect([2, 3, 4, 5])
-        conversion( 3.281, 3)
-        
+        input.addEventListener('input', () => {
+            if (meter.innerText === bottomSelect.innerText) {
+                console.log("kindly select a different measurement")
+                result.textContent = 0
+            } else if (bottomSelect.innerText === "Kilometer"){
+                conversionToKilometer(1000)
+            } else {
+                conversionToFeet(3.281, 3)
+            }
+        })
+    
         
     } else if (meter.innerText === list[2].textContent) {
         list[i].classList.add("darken")
         listDarkedSelect([1, 3, 4, 5])
-        conversion( 3281, 0)
+        conversionToFeet( 3281, 0)
         
     }  else if (meter.innerText === list[3].textContent) {
         list[i].classList.add("darken")
         listDarkedSelect([1, 2, 4, 5])
-        conversion( 30.48, 3)
+        conversionToFeet( 30.48, 3)
         
     } else if (meter.innerText === list[4].textContent) {
         list[i].classList.add("darken")
@@ -91,7 +101,7 @@ for (let i = 0; i < list.length; i++) {
     } else {
         list[i].classList.add("darken")
         listDarkedSelect([1, 2, 3, 4])
-        conversion( 3, 0)
+        conversionToFeet( 3, 0)
     }
 })
 } 
@@ -110,29 +120,40 @@ function listDarkedSelect(arr) {
 
 // lower list
 const lowerList = document.getElementsByClassName("lower--list")
-const feet = document.getElementById("feet")
 for (let i = 0; i < lowerList.length; i++) {
     lowerList[i].addEventListener('click', function() {
         if (lowerList[i] === lowerList[0]) {
             measureList[1].classList.toggle("show")
         } else {
-        /* lowerList[i].classList.toggle("darken") */
         measureList[1].classList.toggle("show")
         let currentList2 = lowerList[i].textContent
-        feet.innerHTML = `${currentList2} <img src="./img/Vector.png" alt="triangle"/>`
+        bottomSelect.innerHTML = `${currentList2} <img src="./img/Vector.png" alt="triangle"/>`
+        }
+        if (bottomSelect.innerText === meter.innerText) {
+            console.log("Selected measurements are the same")
         }
     })
 } 
 
+
 //make the calculation function dynamic
-function conversion(num, toFix) {
-input.addEventListener("input", () => {
-            const result = document.getElementById("result")
-            const calculate = document.getElementById("calculate")
-            const meterValue = num
-            const convertToFeet = meterValue * input.value
-            const meterToFeet = convertToFeet.toFixed(toFix)
-            result.textContent = meterToFeet
-            calculate.textContent = `${meterValue} x ${input.value} In`
-        })
+function conversionToFeet(num, toFix) {
+    const result = document.getElementById("result")
+    const calculate = document.getElementById("calculate")
+    const meterValue = num
+    const convertToFeet = meterValue * input.value
+    const meterToFeet = convertToFeet.toFixed(toFix)
+    result.textContent = meterToFeet
+    calculate.textContent = `${meterValue} x ${input.value} In`
+}
+
+
+function conversionToKilometer(num) {
+    const result = document.getElementById("result")
+    const calculate = document.getElementById("calculate")
+    const meterValue = num
+    const convertToKilometer = input.value / meterValue
+    result.textContent = convertToKilometer
+    calculate.textContent = `${input.value} / ${meterValue} In`
+
 }
