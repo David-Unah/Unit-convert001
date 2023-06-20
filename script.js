@@ -47,10 +47,10 @@ input.addEventListener("input", function() {
         conversionToKilometer(1000)
     } else if (bottomSelect.innerText === "Centimeter") {
         conversionToCentimeter(100)
-    } else if (bottomSelect.innerText === "Feet") {
+    } else if (bottomSelect.innerText === "Foot") {
         conversionToFeet(3.281, 3)
     } else  if (bottomSelect.innerText === "Yard") {
-        conversionToYard(1.094, 3)
+        conversionToFeet(1.094, 3)
     } if (input.value === '') { 
         calculate.textContent = "Kindly input unit" 
     }
@@ -87,7 +87,7 @@ for (let i = 0; i < list.length; i++) {
         }
     if (meter.innerText === list[1].textContent) { 
         list[i].classList.add("darken")
-        listDarkedSelect([2, 3, 4, 5])
+        listDarkedSelect(list, [2, 3, 4, 5])
         input.addEventListener('input', () => {
             if (meter.innerText === bottomSelect.innerText) {
                 console.log("kindly select a different measurement")
@@ -101,29 +101,92 @@ for (let i = 0; i < list.length; i++) {
             } else if (bottomSelect.innerText === "foot") {
                 conversionToFeet(3.281, 3)
             } else {
-                conversionToYard(1.094, 3)
+                conversionToFeet(1.094, 3)
             }
         })
     
         
     } else if (meter.innerText === list[2].textContent) {
         list[i].classList.add("darken")
-        listDarkedSelect([1, 3, 4, 5])
-        conversionToFeet( 3281, 0)
+        listDarkedSelect(list, [1, 3, 4, 5])
+        input.addEventListener('input', () => {
+            if (meter.innerText === bottomSelect.innerText) {
+                console.log("kindly select a different measurement")
+                
+                calculate.textContent = "waiting..."
+            } else if (bottomSelect.innerText === "Meter"){
+                conversionToCentimeter(1000)  //this is a function to convert kilometer to meter
+                
+            } else if (bottomSelect.innerText === "Centimeter") {
+                conversionToCentimeter(100000)
+            } else if (bottomSelect.innerText === "Foot") {
+                conversionToFeet(328.1, 3) 
+            } else {
+                conversionToCentimeter(1094)  //converts km to yard, takes reused this function due to similar setup
+            }
+        })
+        /* conversionToFeet( 3281, 0) */
         
     }  else if (meter.innerText === list[3].textContent) {
         list[i].classList.add("darken")
-        listDarkedSelect([1, 2, 4, 5])
-        conversionToFeet( 30.48, 3)
+        listDarkedSelect(list, [1, 2, 4, 5])
+        input.addEventListener('input', () => {
+            if (meter.innerText === bottomSelect.innerText) {
+                console.log("kindly select a different measurement")
+                
+                calculate.textContent = "waiting..."
+            } else if (bottomSelect.innerText === "Meter"){
+                conversionToKilometer(100) //conversion of cm to m, resuse this function
+                
+            } else if (bottomSelect.innerText === "Kilometer") {
+                conversionToKilometer(100000) //conversion of cm to km, reused this function
+            } else if (bottomSelect.innerText === "Foot") {
+                convertCenToFoot(30.48, 3)  
+            } else {
+                convertCenToFoot(91.44, 3)// conversion fo cm to yard, reused this function
+            }
+        })
+        /* conversionToFeet( 30.48, 3) */
         
     } else if (meter.innerText === list[4].textContent) {
         list[i].classList.add("darken")
-        listDarkedSelect([1, 2, 3, 5])
+        listDarkedSelect(list, [1, 2, 3, 5])
+        input.addEventListener('input', () => {
+            if (meter.innerText === bottomSelect.innerText) {
+                console.log("kindly select a different measurement")
+                
+                calculate.textContent = "waiting..."
+            } else if (bottomSelect.innerText === "Meter"){
+                convertCenToFoot(3.281, 3)  //conversion to Meter: reused function
+                
+            } else if (bottomSelect.innerText === "Kilometer") {
+                convertCenToFoot(3281, 3) // convertion of ft to  km ; reused function
+            } else if (bottomSelect.innerText === "Centimeter") {
+                conversionToFeet(30.48, 3)
+            } else {
+                convertCenToFoot(3, 3)
+            }
+        })
         
     } else {
         list[i].classList.add("darken")
-        listDarkedSelect([1, 2, 3, 4])
-        conversionToFeet( 3, 0)
+        listDarkedSelect(list, [1, 2, 3, 4])
+        input.addEventListener('input', () => {
+            if (meter.innerText === bottomSelect.innerText) {
+                console.log("kindly select a different measurement")
+                
+                calculate.textContent = "waiting..."
+            } else if (bottomSelect.innerText === "Meter"){
+                convertCenToFoot(1.094, 3) // yard to meter; reused function
+                
+            } else if (bottomSelect.innerText === "Kilometer") {
+                convertCenToFoot(1094, 3) // yard to km ; reused function
+            } else if (bottomSelect.innerText === "Centimeter") {
+                conversionToFeet(91.44, 3) // yard to cm; reused function
+            } else {
+                conversionToCentimeter(3)  // yard to ft, reused function
+            }
+        })
     }
 })
 } 
@@ -135,15 +198,16 @@ function renderToNull() {
 
 
 //list darken function
-function listDarkedSelect(arr) {
+function listDarkedSelect(listType, arr) {
         input.value = 0
         result.textContent = input.value
         calculate.textContent = 'calculation goes in here'
         let range = arr
         range.forEach(element => {
-            list[element].classList.remove("darken")
+            listType[element].classList.remove("darken")
         })
 }
+
 
 
 // lower list
@@ -160,9 +224,31 @@ for (let i = 0; i < lowerList.length; i++) {
         }
         if (bottomSelect.innerText === meter.innerText) {
             console.log("Selected measurements are the same")
+        } 
+        if (bottomSelect.innerText === lowerList[1].textContent) { 
+            lowerList[i].classList.add("darken")
+            listDarkedSelect(lowerList, [2, 3, 4, 5])
+        } else if (bottomSelect.innerText === lowerList[2].textContent) {
+            lowerList[i].classList.add("darken")
+            listDarkedSelect(lowerList, [1, 3, 4, 5])
+        } else if (bottomSelect.innerText === lowerList[3].textContent) {
+            lowerList[i].classList.add("darken")
+            listDarkedSelect(lowerList, [1, 2, 4, 5])
+        } else if (bottomSelect.innerText === lowerList[4].textContent) {
+            lowerList[i].classList.add("darken")
+            listDarkedSelect(lowerList, [1, 2, 3, 5])
+        } else {
+            lowerList[i].classList.add("darken")
+            listDarkedSelect(lowerList, [1, 2, 3, 4])
         }
+        
     })
 } 
+
+
+
+
+
 
 
 //make the calculation function dynamic
@@ -195,12 +281,15 @@ function conversionToCentimeter(num) {
     calculate.textContent = `${input.value} x ${meterValue} In`
 }
 
-function conversionToYard(num, toFix) {
+
+//kilometer to meter function
+
+
+function convertCenToFoot(num, tofix) {
     const result = document.getElementById("result")
     const calculate = document.getElementById("calculate")
     const meterValue = num
-    const convertToYard = meterValue * input.value
-    const meterToYard = convertToYard.toFixed(toFix)
-    result.textContent = meterToYard
-    calculate.textContent = `${meterValue} x ${input.value} In`
+    const convertToKilometer = input.value / meterValue
+    result.textContent = convertToKilometer.toFixed(tofix)
+    calculate.textContent = `${input.value} / ${meterValue} In`
 }
