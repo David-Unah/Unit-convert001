@@ -220,7 +220,7 @@ p.con--result {
 
     h1 {
         font-size: 20px;
-        line-height: 24px;
+        line-height: 33px;
     }
     
     button {
@@ -263,14 +263,16 @@ p.con--result {
     
     .top--details {
         width: 94%;
+        height: 174px;
         margin: auto;
-        margin-bottom: 30px;
+        margin-bottom: 42px;
     }
 
     .bottom--details {
         width: 94%;
+        height: 174px;
         margin: auto;
-        margin-top: 30px;
+        margin-top: 35px;
         margin-bottom: 30px;
     }
 
@@ -329,7 +331,7 @@ p.con--result {
     }
     
     input {
-        width: 89%;
+        width: 88%;
         margin: auto;
         font-weight: 500;
         font-size: 40px;
