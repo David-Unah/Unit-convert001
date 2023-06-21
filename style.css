@@ -1,4 +1,4 @@
-html, body {
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
@@ -224,16 +224,8 @@ p.con--result {
     }
     
     button {
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 15px;
-        color: #555555;
         padding: 7px 15px;
-        background: #151515;
-        border: none;
-        border-radius: 10px;
-        margin: auto 9px;
-        cursor: pointer;
+     
     }
     
     .button-color {
@@ -253,48 +245,58 @@ p.con--result {
     }
     
     .main--content {
-        width: 83%;
+        width: 88%;
         height: auto;
         margin: auto;
         margin-top: 15px;
-        padding: 24px;
-        padding-bottom: 54px;
         background: #2C2D2F;
         border-radius: 15px;
     }
     
     .top--details, .bottom--details {
-        position: relative;
-        width: 95%;
-        height: 106px;
-        margin: auto;
-        /* border: 0.5px solid #404040; */
-        border-radius: 20px;
-        padding: 12px ;
-        padding-bottom: 40px;
+        width: 100%;
+        padding: 4px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     
     .top--details {
+        width: 94%;
+        margin: auto;
         margin-bottom: 30px;
     }
 
     .bottom--details {
+        width: 94%;
+        margin: auto;
         margin-top: 30px;
-        padding-bottom: 55px;
+        margin-bottom: 30px;
     }
 
 
     
     .perferred--unit {
-        width: 10%;
+        width: 100px;
         font-weight: 300;
         font-size: 20px;
         line-height: 24px;
         display: flex;
         align-items: center;
         cursor: pointer;
-        box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
     }
+
+    #meter, #bottom--select {
+        margin: 10px;
+        width: 100px;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+    }
+
+
 
     .triangle--image {
         width: 11.68px;
@@ -327,7 +329,7 @@ p.con--result {
     }
     
     input {
-        width: 95%;
+        width: 89%;
         margin: auto;
         font-weight: 500;
         font-size: 40px;
@@ -357,7 +359,7 @@ p.con--result {
     .measure--list {
         display: none;
         position: absolute;
-        top: 100px;
+        top: 48px;
         width: 156px;
         height: 277px;
         background: #222222;
