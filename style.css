@@ -77,6 +77,7 @@ button {
     border-radius: 20px;
     padding: 12px ;
     padding-bottom: 40px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
 
 
@@ -145,6 +146,7 @@ p.con--result {
     font-size: 50px;
     line-height: 61px;
     text-align: right;
+    
 }
 
 .measure--list {
@@ -266,10 +268,11 @@ p.con--result {
         width: 95%;
         height: 106px;
         margin: auto;
-        border: 0.5px solid #404040;
+        /* border: 0.5px solid #404040; */
         border-radius: 20px;
         padding: 12px ;
         padding-bottom: 40px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
     }
     
     .top--details {
