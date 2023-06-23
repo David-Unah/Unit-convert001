@@ -85,29 +85,29 @@ for (let i = 0; i < list.length; i++) {
         let currentList = list[i].textContent   
         meter.innerHTML = `${currentList} <img src="./img/Vector.png" alt="triangle"/>`
         }
-    if (meter.innerText === list[1].textContent) { 
-        list[i].classList.add("darken")
-        listDarkedSelect(list, [2, 3, 4, 5])
-        input.addEventListener('input', () => {
-            if (meter.innerText === bottomSelect.innerText) {
-                console.log("kindly select a different measurement")
-                
-                calculate.textContent = "waiting..."
-            } else if (bottomSelect.innerText === "Kilometer"){
-                conversionToKilometer(1000)
-                
-            } else if (bottomSelect.innerText === "Centimeter") {
-                conversionToCentimeter(100)
-            } else if (bottomSelect.innerText === "foot") {
-                conversionToFeet(3.281, 3)
-            } else {
-                conversionToFeet(1.094, 3)
-            }
-        })
+        if (meter.innerText === list[1].textContent) { 
+            list[1].classList.add("darken")
+            listDarkedSelect(list, [2, 3, 4, 5])
+            input.addEventListener('input', () => {
+                if (meter.innerText === bottomSelect.innerText) {
+                    console.log("kindly select a different measurement")
+                    
+                    calculate.textContent = "waiting..."
+                } else if (bottomSelect.innerText === "Kilometer"){
+                    conversionToKilometer(1000)
+                    
+                } else if (bottomSelect.innerText === "Centimeter") {
+                    conversionToCentimeter(100)
+                } else if (bottomSelect.innerText === "foot") {
+                    conversionToFeet(3.281, 3)
+                } else {
+                    conversionToFeet(1.094, 3)
+                }
+            })
     
         
     } else if (meter.innerText === list[2].textContent) {
-        list[i].classList.add("darken")
+        list[2].classList.add("darken")
         listDarkedSelect(list, [1, 3, 4, 5])
         input.addEventListener('input', () => {
             if (meter.innerText === bottomSelect.innerText) {
@@ -128,7 +128,7 @@ for (let i = 0; i < list.length; i++) {
         /* conversionToFeet( 3281, 0) */
         
     }  else if (meter.innerText === list[3].textContent) {
-        list[i].classList.add("darken")
+        list[3].classList.add("darken")
         listDarkedSelect(list, [1, 2, 4, 5])
         input.addEventListener('input', () => {
             if (meter.innerText === bottomSelect.innerText) {
@@ -149,7 +149,7 @@ for (let i = 0; i < list.length; i++) {
         /* conversionToFeet( 30.48, 3) */
         
     } else if (meter.innerText === list[4].textContent) {
-        list[i].classList.add("darken")
+        list[4].classList.add("darken")
         listDarkedSelect(list, [1, 2, 3, 5])
         input.addEventListener('input', () => {
             if (meter.innerText === bottomSelect.innerText) {
@@ -169,7 +169,7 @@ for (let i = 0; i < list.length; i++) {
         })
         
     } else {
-        list[i].classList.add("darken")
+        list[5].classList.add("darken")
         listDarkedSelect(list, [1, 2, 3, 4])
         input.addEventListener('input', () => {
             if (meter.innerText === bottomSelect.innerText) {
@@ -199,7 +199,7 @@ function renderToNull() {
 
 //list darken function
 function listDarkedSelect(listType, arr) {
-        input.value = 0
+        input.value = ''
         result.textContent = input.value
         calculate.textContent = 'calculation goes in here'
         let range = arr
@@ -226,19 +226,19 @@ for (let i = 0; i < lowerList.length; i++) {
             console.log("Selected measurements are the same")
         } 
         if (bottomSelect.innerText === lowerList[1].textContent) { 
-            lowerList[i].classList.add("darken")
+            lowerList[1].classList.add("darken")
             listDarkedSelect(lowerList, [2, 3, 4, 5])
         } else if (bottomSelect.innerText === lowerList[2].textContent) {
-            lowerList[i].classList.add("darken")
+            lowerList[2].classList.add("darken")
             listDarkedSelect(lowerList, [1, 3, 4, 5])
         } else if (bottomSelect.innerText === lowerList[3].textContent) {
-            lowerList[i].classList.add("darken")
+            lowerList[3].classList.add("darken")
             listDarkedSelect(lowerList, [1, 2, 4, 5])
         } else if (bottomSelect.innerText === lowerList[4].textContent) {
-            lowerList[i].classList.add("darken")
+            lowerList[4].classList.add("darken")
             listDarkedSelect(lowerList, [1, 2, 3, 5])
         } else {
-            lowerList[i].classList.add("darken")
+            lowerList[5].classList.add("darken")
             listDarkedSelect(lowerList, [1, 2, 3, 4])
         }
         
