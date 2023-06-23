@@ -13,6 +13,24 @@ for(let i = 0; i < details.length; i++) {
     let listClick = details[i] 
     listClick.addEventListener('click', function() {
     measureList[i].classList.toggle("show")
+    for (let i = 0; i < list.length; i++) {
+        if (meter.innerText === list[1].textContent) { 
+            list[1].classList.add("darken")
+            listDarkedSelect(list, [2, 3, 4, 5])
+        } else if (meter.innerText === list[2].textContent) {
+            list[2].classList.add("darken")
+            listDarkedSelect(list, [1, 3, 4, 5])
+        }  else if (meter.innerText === list[3].textContent) {
+            list[3].classList.add("darken")
+            listDarkedSelect(list, [1, 2, 4, 5])
+        } else if (meter.innerText === list[4].textContent) {
+            list[4].classList.add("darken")
+            listDarkedSelect(list, [1, 2, 3, 5])
+        } else {
+            list[5].classList.add("darken")
+            listDarkedSelect(list, [1, 2, 3, 4])
+        }
+    }
 })}
 
 
@@ -85,9 +103,9 @@ for (let i = 0; i < list.length; i++) {
         let currentList = list[i].textContent   
         meter.innerHTML = `${currentList} <img src="./img/Vector.png" alt="triangle"/>`
         }
-        if (meter.innerText === list[1].textContent) { 
-            list[1].classList.add("darken")
-            listDarkedSelect(list, [2, 3, 4, 5])
+        if (list[i] === list[1]) { 
+            /* list[1].classList.add("darken")
+            listDarkedSelect(list, [2, 3, 4, 5]) */
             input.addEventListener('input', () => {
                 if (meter.innerText === bottomSelect.innerText) {
                     console.log("kindly select a different measurement")
@@ -106,9 +124,9 @@ for (let i = 0; i < list.length; i++) {
             })
     
         
-    } else if (meter.innerText === list[2].textContent) {
-        list[2].classList.add("darken")
-        listDarkedSelect(list, [1, 3, 4, 5])
+    } else if (list[i] === list[2]) {
+        /* list[2].classList.add("darken")
+        listDarkedSelect(list, [1, 3, 4, 5]) */
         input.addEventListener('input', () => {
             if (meter.innerText === bottomSelect.innerText) {
                 console.log("kindly select a different measurement")
@@ -127,9 +145,9 @@ for (let i = 0; i < list.length; i++) {
         })
         /* conversionToFeet( 3281, 0) */
         
-    }  else if (meter.innerText === list[3].textContent) {
-        list[3].classList.add("darken")
-        listDarkedSelect(list, [1, 2, 4, 5])
+    }  else if (list[i] === list[3]) {
+        /* list[3].classList.add("darken")
+        listDarkedSelect(list, [1, 2, 4, 5]) */
         input.addEventListener('input', () => {
             if (meter.innerText === bottomSelect.innerText) {
                 console.log("kindly select a different measurement")
@@ -148,9 +166,9 @@ for (let i = 0; i < list.length; i++) {
         })
         /* conversionToFeet( 30.48, 3) */
         
-    } else if (meter.innerText === list[4].textContent) {
-        list[4].classList.add("darken")
-        listDarkedSelect(list, [1, 2, 3, 5])
+    } else if (list[i] === list[4]) {
+        /* list[4].classList.add("darken")
+        listDarkedSelect(list, [1, 2, 3, 5]) */
         input.addEventListener('input', () => {
             if (meter.innerText === bottomSelect.innerText) {
                 console.log("kindly select a different measurement")
@@ -169,8 +187,8 @@ for (let i = 0; i < list.length; i++) {
         })
         
     } else {
-        list[5].classList.add("darken")
-        listDarkedSelect(list, [1, 2, 3, 4])
+        /* list[5].classList.add("darken")
+        listDarkedSelect(list, [1, 2, 3, 4]) */
         input.addEventListener('input', () => {
             if (meter.innerText === bottomSelect.innerText) {
                 console.log("kindly select a different measurement")
