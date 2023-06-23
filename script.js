@@ -14,16 +14,16 @@ for(let i = 0; i < details.length; i++) {
     listClick.addEventListener('click', function() {
     measureList[i].classList.toggle("show")
     for (let i = 0; i < list.length; i++) {
-        if (meter.innerText === list[1].textContent) { 
+        if (listClick.innerText === list[1].textContent) { 
             list[1].classList.add("darken")
             listDarkedSelect(list, [2, 3, 4, 5])
-        } else if (meter.innerText === list[2].textContent) {
+        } else if (listClick.innerText === list[2].textContent) {
             list[2].classList.add("darken")
             listDarkedSelect(list, [1, 3, 4, 5])
-        }  else if (meter.innerText === list[3].textContent) {
+        }  else if (listClick.innerText === list[3].textContent) {
             list[3].classList.add("darken")
             listDarkedSelect(list, [1, 2, 4, 5])
-        } else if (meter.innerText === list[4].textContent) {
+        } else if (listClick.innerText === list[4].textContent) {
             list[4].classList.add("darken")
             listDarkedSelect(list, [1, 2, 3, 5])
         } else {
